@@ -1,10 +1,6 @@
-import java.util.Scanner;
+public static void main(String[] args) {
 
-public class Main {
-
-	public static void main(String[] args) {
-
-		//função para ler 3 números e dizer qual o maior deles:
+		//Program to request 3 numbers, and it shows the biggest one.  (using functions):
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("*************");
@@ -20,15 +16,25 @@ public class Main {
 				+num2 + ", "
 				+num3);
 		
-		if(num1> num2 && num1 > num3) {
-			System.out.println("Higher: "+ num1);
-		}else if(num2 > num3 && num2 > num1) {
-			System.out.println("Higher: " + num2);
-		}else {
-			System.out.println("Higher: "+ num3);
-		}
+		int higher = max(num1, num2, num3);
+		
+		showResult(higher);
 		
 		sc.close();
 	}
 
-}
+	public static int max(int x, int y, int z) {
+		int aux;
+		if(x > y && x > z) {
+			aux = x;
+		}else if(y > z && y > x) {
+			aux = y;
+		}else {
+			aux = z;
+		}
+		return aux;
+	}
+	
+	public static void showResult(int res) {
+		System.out.println("The higher number is: " + res);
+	}
